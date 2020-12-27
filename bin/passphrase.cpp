@@ -1,42 +1,45 @@
-/**
- * @file passphrase.cpp
- *
- * @version 01.01 20201227
- *
- * @brief OIS 2020-12-15
- *
- * @ingroup passphrase
- * (Note: this needs exactly one @defgroup somewhere)
- *
- * @author Castellani Davide
- *
- * Contact: contacts@castellanidavide.it
- *
+/*
+ * NOTE: it is recommended to use this even if you don't
+ * understand the following code.
  */
 
-// Includes
-#include <bits/stdc++.h>
+#include <stdio.h>
+#include <iostream>
+#include <string>
+
 using namespace std;
 
-// Variabiles
-int N;
+// input data
+int N, K;
+string passphrase;
 
-// Main code
-int main()
-{
-  // Cncomment the following lines if you want to read/write from files
-  // freopen("input.txt", "r", stdin);
-  // freopen("output.txt", "w", stdout);
+int main() {
+//  uncomment the following lines if you want to read/write from files
+//  freopen("input0.txt", "r", stdin);
+//  freopen("output.txt", "w", stdout);
 
-  // Input
-  cin >> N;
+    cin >> N >> K;
+    cin >> passphrase;
 
-  // Code
-  // ...
+    // insert your code here
+    for(int j = 0; j < K; j++)
+    {
+        for(int i = 0; i < passphrase.length(); i++)
+        {
+            if(passphrase.at(i) < passphrase.at(i + 1))
+            {
+                passphrase.erase(passphrase.begin() + i);
+                break;
+            }
+            if(i = passphrase.length() -1)
+            {
+                passphrase.erase(passphrase.length() - K);
+                cout << passphrase << endl;
+                return 0;
+            }
+        }
+    }
 
-  // Output
-  cout << N << endl;
-
-  // End
-  return 0;
+    cout << passphrase << endl; // print the result
+    return 0;
 }
